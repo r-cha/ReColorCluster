@@ -1,0 +1,9 @@
+# venv
+imagecluster/
+
+# artifacts
+__pycache__
+
+# data
+data/
+RESULT.png
