@@ -22,7 +22,7 @@ def save_image(filename, data, img):
 
     data = data.reshape((img.shape))
 
-    cv2.imwrite("NEW_IMG.png", data)
+    cv2.imwrite(filename, data)
 
 def remap_colors(data, colors, newcolors):
 

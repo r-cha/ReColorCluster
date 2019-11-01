@@ -1,9 +1,11 @@
-# venv
+# environment
 imagecluster/
+.vscode
 
 # artifacts
 __pycache__
 
 # data
 data/
+YOUR_IMAGE.png
 RESULT.png
