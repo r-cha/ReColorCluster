@@ -4,10 +4,12 @@
 
 To set up a python virtual environment:
 
-`cd [directory where you cloned this repository]`
-`python -m venv 'imagecluster'`
-`source imagecluster/bin/activate`
-`pip install -r requirements.txt`
+```bash
+cd [directory where you cloned this repository]
+python -m venv 'imagecluster'
+source imagecluster/bin/activate
+pip install -r requirements.txt
+```
 
 ## Usage
 
