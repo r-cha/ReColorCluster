@@ -6,7 +6,8 @@ from util import (
     img_to_ptlist, 
     remap_colors, 
     save_image,
-    Nord
+    Nord,
+    Horizon
 )
 
 

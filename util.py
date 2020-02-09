@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
 
 def load_image(filename):
     """
@@ -73,3 +72,23 @@ class Nord:
     aurora = np.array([nord11, nord12, nord13, nord14, nord15])
 
     complete = np.concatenate((polar_night, snow_storm, frost, aurora))
+
+
+class Horizon:
+
+    black = toTuple('#16161C')
+    lessblack = toTuple('#1A1C23')
+    midblack = toTuple('#1C1E26')
+    upperblack = toTuple('#232530')
+    stillblack = toTuple("#2E303E")
+    brightblack = toTuple('#6C6F93')
+
+    purple = toTuple('#B877DB')
+    blue = toTuple('#25B2BC')
+    red = toTuple('#E95678')
+    orange1 = toTuple('#F09383')
+    orange2 = toTuple('#FAB795')
+    orange3 = toTuple('#FAC29A')
+
+    dark_syntax = np.array([black, brightblack, purple, blue, red, orange1, orange2, orange3])
+    sunburst = np.array([black, lessblack, midblack, upperblack, red, orange1, orange2, orange3])
