@@ -1,18 +1,15 @@
 import cv2
 import numpy as np
 
+###
+### File utils
+###
+
 def load_image(filename):
     """
     Load an image into a nparray
     """
     return cv2.imread(filename)
-
-def img_to_ptlist(img):
-    """
-    Transform image into a list of pts
-    """
-
-    return img.reshape(-1, 3)
 
 def save_image(filename, data, img):
     """
@@ -20,21 +17,47 @@ def save_image(filename, data, img):
     """
 
     data = data.reshape((img.shape))
-
     cv2.imwrite(filename, data)
 
-def remap_colors(data, colors, newcolors):
+def read_colorfile(filename:str):
+    """
+    Load a user-defined colorway.
+    """
+    colors = []
+    with open(filename, 'r') as file:
+        for color in file:
+            colors.append(toTuple(color))
+    return np.array(colors)
 
-    print(type(colors))
-    print(type(newcolors))
+###
+### Img utils
+###
 
-    lut = {}
-    for color in colors:
-        lut[color] = newcolors
-    for pt in data:
-        pt = lut[pt]
-    
-    return data
+def img_to_ptlist(img):
+    """
+    Transform image into a list of pts
+    """
+    return img.reshape(-1, 3)
+
+###
+### Color utils
+###
+
+def color_selector(name, filename):
+    if filename is not None:
+        return read_colorfile(filename)
+    else:
+        load_included_colorway(name)
+
+def load_included_colorway(name:str):
+    params = name.split(".")
+    if params[0] == "Nord":
+        return getattr(Nord, params[1], Nord.polar_night)
+    elif params[0] == "Horizon":
+        return getattr(Horizon, params[1], Horizon.sunburst)
+    else:
+        # Panic state. The requested color class does not exist.
+        return np.array([toTuple('#000000')])
 
 def toTuple(hex):
     """
@@ -43,6 +66,10 @@ def toTuple(hex):
     """
     hex = hex.strip('#')
     return np.array([int(hex[4:6], 16), int(hex[2:4], 16), int(hex[0:2], 16) ])
+
+###
+### Included colorways
+###
 
 class Nord:
 
@@ -72,7 +99,6 @@ class Nord:
     aurora = np.array([nord11, nord12, nord13, nord14, nord15])
 
     complete = np.concatenate((polar_night, snow_storm, frost, aurora))
-
 
 class Horizon:
 
