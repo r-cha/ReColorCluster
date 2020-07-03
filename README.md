@@ -15,11 +15,11 @@ pip install -r requirements.txt
 
 ### Prepare image
 
-This process is nondestructive, so your photo is completely safe! That being said, if you have an image you like, you can copy the complete path of your image and paste it into the value of `INPUT_FILENAME` in `image_cluster.py`. Alternatively, copy and paste the image itself into the directory of this code, and put only the filename into the script. By default, the script expects `YOUR_IMAGE.JPG` in the same directory as the script itself.
+This process is nondestructive, so your photo is completely safe!
 
-To name change the name or location of the output image, change the value of `OUTPUT_FILENAME` in `image_cluster.py`. By default, the image will be saved in the directory of the script under the name `RESULT.PNG`.
+If you have an image you like, provide the path to it in the `--infile` argument on the command line. Alternatively, copy and paste the image itself into the directory of this code and rename it `YOUR_IMAGE.JPG`.
 
-Command line parameters are on the "Nice To Have" list...
+To name change the name or location of the output image, specify the `--outfile` argument on the command line. By default, the image will be saved in the directory of the script under the name `RESULT.PNG`.
 
 ### Run script
 
@@ -29,11 +29,10 @@ This will downsample the color space of your image to 4 colors, then recolor it 
 
 ## Customization
 
-This script is fairly flexible (aka barebones).
+To recolor to different colors,
 
-To recolor to different colors, change the value of `newcolors` in `image_cluster.py`. `newcolors` should be an array of hex colors in BGR format. If you only have RGB format, there is a function in `util.py` that can convert for you.
-
-This script can also be used to find the "color scheme" of an image, sort of the `k` most common colors in the image. In this case, you'll want to remove any recoloring and simply return the list of `centers` after processing.
+a) specify the `--colors` argument on the command line. This parameter must match the name of a colorway in `utils.py` (a black image result indicates that the requested colorway is not built-in). OR
+b) specify the `--colorfile` argument on the command line. This parameter must be the filename of a color file, which is a simple file consisting of a list of RGB hex values, including the leading '#' character.
 
 ## Support
 
