@@ -31,8 +31,8 @@ This will downsample the color space of your image to 4 colors, then recolor it 
 
 To recolor to different colors,
 
-a) specify the `--colors` argument on the command line. This parameter must match the name of a colorway in `utils.py` (a black image result indicates that the requested colorway is not built-in). OR
-b) specify the `--colorfile` argument on the command line. This parameter must be the filename of a color file, which is a simple file consisting of a list of RGB hex values, including the leading '#' character.
+- specify the `--colors` argument on the command line. This parameter must match the name of a colorway in `utils.py` (a black image result indicates that the requested colorway is not built-in). OR
+- specify the `--colorfile` argument on the command line. This parameter must be the filename of a color file, which is a simple file consisting of a list of RGB hex values, including the leading '#' character.
 
 ## Support
 
