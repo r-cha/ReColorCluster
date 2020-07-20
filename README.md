@@ -31,8 +31,12 @@ This will downsample the color space of your image to 4 colors, then recolor it 
 
 To recolor to different colors,
 
-- specify the `--colors` argument on the command line. This parameter must match the name of a colorway in `utils.py` (a black image result indicates that the requested colorway is not built-in). OR
+- specify the `--colorway` argument on the command line. This parameter must match the name of a colorway in `utils.py` (a black image result indicates that the requested colorway is not built-in).
 - specify the `--colorfile` argument on the command line. This parameter must be the filename of a color file, which is a simple file consisting of a list of RGB hex values, including the leading '#' character.
+- specify the `--like` on the command line. This flag expects two arguments; the first is the filename of an image and the second is the number of colors you want to see in the resulting image.
+- specify the `--compress` argument on the command line. This parameter must be an integer. Specifying `--compress K` is identical to specifying `--like <infile> K`
+
+These arguments are all mutually exclusive (but not enforced, so mixing them results in undefined behavior!).
 
 ## Support
 
